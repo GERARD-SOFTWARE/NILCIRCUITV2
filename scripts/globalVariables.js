@@ -26,18 +26,18 @@ export const Elements = {
         }
     },
     ContentAreas: {
-        MainArea:         document.getElementById(`MAIN_CC`),
-        TestArea:         document.getElementById(`test`)
+        MainArea:                   document.getElementById(`MAIN_CC`),
+        TestArea:                   document.getElementById(`test`)
     },
     TopMenu: {
-        Container:        document.getElementById(`BannerContainer`)
+        Container:                  document.getElementById(`BannerContainer`)
     },
     Info:{
-        Container: document.querySelector(`.info`),
-        IP: document.getElementById(`ip`),
-        Date: document.getElementById(`date`),
-        Country: document.getElementById(`country`),
-        Icon: document.querySelector(`.info-icon`)
+        Container:                  document.querySelector(`.info`),
+        IP:                         document.getElementById(`ip`),
+        Date:                       document.getElementById(`date`),
+        Country:                    document.getElementById(`country`),
+        Icon:                       document.querySelector(`.info-icon`)
     }
 }
 
