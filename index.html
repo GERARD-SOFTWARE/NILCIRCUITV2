@@ -1,27 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
+    <!-- HEAD -->
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NILCIRCUIT V2</title>
+
+        <!-- CSS FILES -->
+         
         <link rel="icon" href="./assets/image/favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="./styles/fonts.css">
-        <link rel="stylesheet" href="./styles/testing-things.css">
         <link rel="stylesheet" href="./styles/theme.css">
         <link rel="stylesheet" href="./styles/style.css">
         <link rel="stylesheet" href="./styles/toolbar.css">
-        <link rel="stylesheet" href="./styles/top-menu.css">
+        <link rel="stylesheet" href="./styles/Banner.css">
         <link rel="stylesheet" href="./styles/info.css">
+        <link rel="stylesheet" href="./styles/extra.css">
 
     </head>
 
+    <!-- BODY -->
+
     <body class="dark-mode">
-            <div class="main-container">
-                <div class="top-menu">
-                    <span id="main-text">NILCIRCUIT V2</span>
-                </div>
-                <div class="main-area">
+
+            <!-- WHOLE WEBPAGE CONTAINER -->
+
+            <div class="main-container" id="website-shell">
+                <!-- TOP MENU -->
+                <header id="BannerContainer">
+                    <span id="BannerText">NILCIRCUIT V2</span>
+                </header>
+                <!-- MAIN AREA -->
+                <div class="main-area" id="MAIN_CC">
+                    <!-- TEST -->
+                    <div id="test"> </div>
+                    <!-- INFO -->
                     <div class="info">
                         <p class="info-icon">i</p>
                         <h1 id="ip">IP: </h1>
@@ -29,27 +44,47 @@
                         <h1 id="country">Country: </h1>
                     </div>
                 </div>
-                <div class="toolbar">
-                    <div class="menu main-menu">
-                        <button class="menu-button" id="colorSchemeButton">
-                            COLOR SCHEME
-                        </button>
+                <!-- TOOLBAR -->
+                <div class="toolbar" id="TB">
+                    <div class="menu main-menu" id="TB_Main">
+                        <!-- MAIN MENU HEADER-->
+                        <header class="menu-header">MAIN MENU</header>
+                        <!-- COLOR SCHEME BUTTON -->
+                        <button class="menu-button" id="MM_CS">COLOR SCHEME</button>
+                        <!-- TESTING BUTTON -->
+                        <button class="menu-button" id="MM_Test">TEST</button>
                     </div>
 
-                    <div class="menu submenu">
-                        <button class="back-button">Back</button>
-                        <button class="submenu-button" id="colorSchemeDarkMode">Dark Mode</button>
-                        <button class="submenu-button" id="colorSchemeLightMode">Light Mode</button>
-                        <button class="submenu-button" id="colorSchemeStrobeMode">Toggle Strobe Mode</button>
+                    <div class="menu submenu" id="TB_CS">
+                        <header class="menu-header">COLOR SCHEME</header>
+                        <button class="back-button" id="CS_Back">Back</button>
+                        <button class="submenu-button" id="CS_Dark">Dark Mode</button>
+                        <button class="submenu-button" id="CS_Light">Light Mode</button>
+                        <button class="submenu-button" id="CS_CL">Custom Layouts</button>
+                        <button class="submenu-button" id="CS_Strobe">Toggle Strobe Mode</button>
+                    </div>
+
+                    <div class="menu submenu" id="TB_CL">
+                        <header class="menu-header">CUSTOM LAYOUTS</header>
+                        <button class = "back" id="CL_Back">Back</button>
+                        <button class="submenu-button" id="CL_TopMenu">Top Menu</button>
+                        <button class="submenu-button" id="CL_Toolbar">ToolBar</button>
+                        <button class="submenu-button" id="CL_MainArea">Main Area</button>
                     </div>
 
                 </div>
             </div>
 
-            <script src="./scripts/titleHandler.js"></script>
-            <script src="./scripts/colorScheme.js"></script>
-            <script src="./scripts/learning.js"></script>
+            <!-- SCRIPTS -->
 
+            <script type="module" src="./scripts/classes.js"></script>
+            <script type="module" src="./scripts/globalVariables.js"></script>
+            <script type="module" src="./scripts/siteHandler.js"></script>
+            <script type="module" src="./scripts/colorScheme.js"></script>
+            <script type="module" src="./scripts/test.js"></script>
+            <script type="module" src="./scripts/customLayouts.js"></script>
+
+            <!-- END OF BODY -->
     </body>
 
 </html>

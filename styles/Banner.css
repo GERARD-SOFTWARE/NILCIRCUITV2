@@ -1,20 +1,26 @@
 
-#main-text {
-    color: /*transparent*/ var(--top-menu-text-color); /* toggle by setting to transparent */
-    font-size: 40px;
-    font-family: OpenSans;
+#BannerContainer {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    /* Gradient implementation. Depends on text color being transparent */
-    background: var(--main-text-gradient);
-    -webkit-background-clip: text;
+/* BANNER STYLE */
+
+#BannerText {
+    color: var(--banner-text-color); 
+    font-size: 40px;
+    text-align: center;
+
     background-clip: text;
 
-    user-select: none;
-
-    background-color: transparent;
-
     animation: pulse 2s ease-in-out infinite;
+    user-select: none;
 }
+
+/* BANNER ANIMATION */
 
 @keyframes pulse {
     0%, 100% {

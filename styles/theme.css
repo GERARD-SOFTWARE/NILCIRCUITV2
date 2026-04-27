@@ -1,5 +1,5 @@
 body.light-mode {
-    --top-menu-text-color: black;
+    --banner-text-color: black;
     --text-shadow-color-1: rgb(70, 70, 70);
     --text-shadow-color-2: rgb(0, 0, 0);
     --main-text-gradient: linear-gradient(90deg, #000000, #292929, #000000);
@@ -16,10 +16,12 @@ body.light-mode {
     --button-text-color: black;
 
     --bg-pulse: background-pulse-light 10s infinite;
+
+    --header-color: black;
 }
 
 body.dark-mode {
-    --top-menu-text-color: white;
+    --banner-text-color: white;
     --text-shadow-color-1: rgb(185, 185, 185);
     --text-shadow-color-2: rgb(255, 255, 255);
     --main-text-gradient: linear-gradient(90deg, #ffffff, #b8b8b8, #ffffff);
@@ -36,6 +38,8 @@ body.dark-mode {
     --button-text-color: white;
 
     --bg-pulse: background-pulse-dark 10s infinite;
+
+    --header-color: white;
 }
 
 @keyframes background-pulse-dark {

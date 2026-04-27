@@ -1,42 +1,44 @@
-
-
-const colorSchemeButton = document.getElementById('colorSchemeButton');
-const backButton = document.getElementsByClassName('back-button');
-
-const darkModeButton = document.getElementById('colorSchemeDarkMode');
-const lightModeButton = document.getElementById('colorSchemeLightMode');
-const strobeModeButton = document.getElementById('colorSchemeStrobeMode');
+import {
+    Elements
+} from './globalVariables.js'
 
 
 const submenu = document.getElementsByClassName('submenu')[0];
 const toolbarMainMenu = document.getElementsByClassName('main-menu')[0];
 
-colorSchemeButton.addEventListener('click', () => {
-    toolbarMainMenu.style.transform = "translateX(-250px)";
-    submenu.style.transform = "translateX(0%)";
+
+Elements.Toolbar.MainMenu.ColorSchemeButton.addEventListener('click', () => {
+    Elements.Toolbar.MainMenu.Container.style.transform = "translateX(-250px)";
+    Elements.Toolbar.ColorSchemeMenu.Container.style.transform = "translateX(0%)";
 });
 
-for (let i = 0; i < backButton.length; i++) {
-    backButton[i].addEventListener("click", () => {
-        toolbarMainMenu.style.transform = "translateX(0%)";
-        submenu.style.transform = "translateX(350px)";
-    });
-};
 
-lightModeButton.addEventListener('click', () => {
+Elements.Toolbar.ColorSchemeMenu.CustomLayoutsButton.addEventListener('click', () => {
+    Elements.Toolbar.ColorSchemeMenu.Container.style.transform = "translateX(-250px)";
+    Elements.Toolbar.CustomLayoutMenu.Container.style.transform = "translateX(0%)";
+});
+
+Elements.Toolbar.ColorSchemeMenu.BackButton.addEventListener('click', () => {
+    Elements.Toolbar.ColorSchemeMenu.Container.style.transform = "translateX(250px)";
+    Elements.Toolbar.MainMenu.Container.style.transform = "translateX(0%)";
+});
+
+Elements.Toolbar.ColorSchemeMenu.LightModeButton.addEventListener('click', () => {
     document.body.classList = "light-mode";
     document.body.style.backgroundColor = "white";
 });
 
-darkModeButton.addEventListener('click', () => {
+Elements.Toolbar.ColorSchemeMenu.DarkModeButton.addEventListener('click', () => {
     document.body.classList = "dark-mode";
     document.body.style.backgroundColor = "black";
 });
 
+
+
 let strobeToggled = false;
 let STROBE_EVENT;
 let currTheme = document.body.classList;
-strobeModeButton.addEventListener('click', () => {
+Elements.Toolbar.ColorSchemeMenu.StrobeButton.addEventListener('click', () => {
     if (!strobeToggled) {
         strobeToggled = true;
         STROBE_EVENT = setInterval(() => {
