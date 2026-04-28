@@ -149,13 +149,37 @@ export class AreaBuilder {
 export class SubMenu {
     _parent;
     _container;
-    constructor(parentElement) {
+    title;
+    id;
+    buttons = {};
+    constructor(parentElement, title, id) {
         this._parent = parentElement;
         this._container = document.createElement("div");
         this._container.classList = `menu submenu`;
+        this._container.id = id;
+        this.id = id;
+        this.title = document.createElement(`header`);
+        this.title.innerText = title;
+        this.title.classList = `menu-header`;
     }
 
-    addButton(title, onclick) {
-        
+    addButton(title, id) {
+        const idNew = `${this.id}_${id.replace(" ", "-")}`;
+        let button = document.createElement("button");
+        button.innerText = title;
+        button.id = idNew;
+        this._container.appendChild(button);
+        this.buttons[idNew] = button;
+        return button;
     }
+
+    bindButton(id, callback) {
+        let button = this.buttons[`${this.id}_${id.replace(" ", "-")}`]
+        if (button != undefined && button != null) {
+            return button.addEventListener('click', callback);
+        }
+        return Error("No button belonging to this submenu containing that id."); // Return an error, just in case someone calls without a real id
+    }
+
+    
 }
