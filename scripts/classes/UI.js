@@ -163,6 +163,7 @@ export class SubMenu {
         this.title = document.createElement(`header`);
         this.title.innerText = title;
         this.title.classList = `menu-header`;
+<<<<<<< HEAD:scripts/classes/UI.js
         this._container.appendChild(this.title);
 
         Elements.Toolbar.Container.appendChild(this._container)
@@ -188,6 +189,10 @@ export class SubMenu {
         this._container.style.transform = "translateX(0%)";
     }
 
+=======
+    }
+
+>>>>>>> dbe25f6bc287df6800b2e2975b357dd68a709a2a:scripts/classes.js
     addButton(title, id) {
         const idNew = `${this.id}_${id.replace(" ", "-")}`;
         let button = document.createElement("button");
@@ -196,6 +201,7 @@ export class SubMenu {
         this._container.appendChild(button);
         this.buttons[idNew] = button;
         return button;
+<<<<<<< HEAD:scripts/classes/UI.js
     }
 
     bindButton(id, callback) {
@@ -235,4 +241,15 @@ export class SubMenu {
     getContainer() {
         return this._container;
     }
+    
+    // scripts/classes.js
+    bindButton(id, callback) {
+        let button = this.buttons[`${this.id}_${id.replace(" ", "-")}`]
+        if (button != undefined && button != null) {
+            return button.addEventListener('click', callback);
+        }
+        return Error("No button belonging to this submenu containing that id."); // Return an error, just in case someone calls without a real id
+    }
+
+    
 }
