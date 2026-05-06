@@ -163,7 +163,6 @@ export class SubMenu {
         this.title = document.createElement(`header`);
         this.title.innerText = title;
         this.title.classList = `menu-header`;
-<<<<<<< HEAD:scripts/classes/UI.js
         this._container.appendChild(this.title);
 
         Elements.Toolbar.Container.appendChild(this._container)
