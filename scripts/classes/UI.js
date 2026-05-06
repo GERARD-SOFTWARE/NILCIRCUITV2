@@ -163,36 +163,8 @@ export class SubMenu {
         this.title = document.createElement(`header`);
         this.title.innerText = title;
         this.title.classList = `menu-header`;
-<<<<<<< HEAD:scripts/classes/UI.js
-        this._container.appendChild(this.title);
-
-        Elements.Toolbar.Container.appendChild(this._container)
-
-        let openButton = document.createElement("button");
-        this._parent.appendChild(openButton);
-        openButton.innerText = title;
-        openButton.addEventListener('click', () => {
-            this.openMenu(this._parent);
-        });
-
-        let backButton = document.createElement("button");
-        this._container.appendChild(backButton);
-        backButton.innerText = "Back";
-        backButton.addEventListener('click', () => {
-            this._parent.style.transform = "translateX(0%)";
-            this._container.style.transform = "translateX(250px)";
-        });
     }
 
-    openMenu() {
-        this._parent.style.transform = "translateX(-250px)";
-        this._container.style.transform = "translateX(0%)";
-    }
-
-=======
-    }
-
->>>>>>> dbe25f6bc287df6800b2e2975b357dd68a709a2a:scripts/classes.js
     addButton(title, id) {
         const idNew = `${this.id}_${id.replace(" ", "-")}`;
         let button = document.createElement("button");
@@ -201,7 +173,6 @@ export class SubMenu {
         this._container.appendChild(button);
         this.buttons[idNew] = button;
         return button;
-<<<<<<< HEAD:scripts/classes/UI.js
     }
 
     bindButton(id, callback) {
