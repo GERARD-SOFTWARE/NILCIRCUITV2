@@ -1,27 +1,21 @@
 import { Elements } from "./globalVariables.js";
-import { Table, AreaBuilder } from "./classes.js";
+import { Table, AreaBuilder, SubMenu } from "./classes/UI.js";
+import { LibJS_FileReader, LibJS_Buffer, LibJS_Array, LibJS_Lexer } from "./classes/LibJS.js";
 
-const builder = new AreaBuilder(Elements.ContentAreas.TestArea);
+const JS_FileReader = new LibJS_FileReader();
+const JS_Lexer      = new LibJS_Lexer.JavaScript();
 
-let table = new Table(2, 2);
-table.setEntry(0, 0, "Name")
-table.setEntry(1, 0, "Age")
-table.setEntry(0, 1, "Test Testingson")
-table.setEntry(1, 1, "300")
+const menu = new SubMenu(Elements.Toolbar.MainMenu.Container, "Testing Menu", "testMenuId");
 
-Elements.Toolbar.MainMenu.TestButton.addEventListener('click', (event) => {
-    builder.appendLine("Test text");
-    builder.appendInfo("Test info");
-    builder.appendWarning("Test warning");
-    try {
-        builder.appendError("Test error");
-    } catch (e) {
-        console.log(`Caught error: ${e}`);
+menu.addAndBindButton("Load File", "loadFile", () => {
+    JS_FileReader.promptFile();
+});
+
+menu.addAndBindButton("Dump File", "dumpFile", () => {
+    if (JS_FileReader.file) {
+        JS_FileReader.getFileContents("arraybuffer")
+        .then((v) => {
+            console.log(v);
+        })
     }
-    
-    let audio = builder.appendAudio("");
-
-    builder.appendList("Test List", "item", "another item", "more items");
-    builder.appendImage("https://placehold.co/10");
-    builder.appendTable(table);
 });

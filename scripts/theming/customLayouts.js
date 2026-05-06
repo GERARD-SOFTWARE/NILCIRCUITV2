@@ -1,4 +1,4 @@
-import { Elements } from './globalVariables.js'
+import { Elements } from "../globalVariables.js";
 
 const BackButton = Elements.Toolbar.CustomLayoutMenu.BackButton; 
 const CustomLayoutMenu = Elements.Toolbar.CustomLayoutMenu.Container;
@@ -6,6 +6,7 @@ const ColorSchemeMenu = Elements.Toolbar.ColorSchemeMenu.Container;
 const TopMenuButton = Elements.Toolbar.CustomLayoutMenu.TopMenuButton;
 const MainAreaButton = Elements.Toolbar.CustomLayoutMenu.MainAreaButton;
 const ToolbarButton = Elements.Toolbar.CustomLayoutMenu.ToolbarButton;
+const NewPresetButton = Elements.Toolbar.CustomLayoutMenu.NewPresetButton
 
 BackButton.addEventListener('click', () => {
     CustomLayoutMenu.style.transform = "translateX(250px)";

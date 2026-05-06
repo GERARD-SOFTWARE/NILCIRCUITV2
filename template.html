@@ -34,12 +34,14 @@
                 </header>
                 <!-- MAIN AREA -->
                 <div class="main-area" id="MAIN_CC">
+                    <!-- TEST -->
+                    <div class="Content_Container" id="Content_TEST"> </div>
                     <!-- AUDIO PLAYGROUND -->
-                    <div class="Content_Container" id="Content_AP">
+                    <div id="Content_Container Content_AP">
                         <canvas class="take_whole_container relative" id="AP_Canvas"></canvas>
                     </div>
                     <!-- INFO -->
-                    <div class="User_info" id="Date_IP_Country">
+                    <div class="info">
                         <p class="info-icon">i</p>
                         <h1 id="ip">IP: </h1>
                         <h1 id="date">Date: </h1>
@@ -51,11 +53,21 @@
                     <div class="menu main-menu" id="TB_Main">
                         <!-- MAIN MENU HEADER-->
                         <header class="menu-header">MAIN MENU</header>
+                        <button class="menu-button" id="MM_CS">COLOR SCHEME</button>
+                        <button class="menu-button" id="MM_AP">AUDIO PLAYGROUND</button>
+                        <button class="menu-button" id="MM_Test">TEST</button>
                     </div>
 
                     <!-- COLOR SCHEME MENU -->
 
-                    
+                    <div class="menu submenu" id="TB_CS">
+                        <header class="menu-header">COLOR SCHEME</header>
+                        <button class="back-button" id="CS_Back">Back</button>
+                        <button class="submenu-button" id="CS_Dark">Dark Mode</button>
+                        <button class="submenu-button" id="CS_Light">Light Mode</button>
+                        <button class="submenu-button" id="CS_CL">Custom Layouts</button>
+                        <button class="submenu-button" id="CS_Strobe">Toggle Strobe Mode</button>
+                    </div>
                     
                     <!-- CUSTOM LAYOUT MENU -->
 
@@ -76,17 +88,29 @@
                         <button>Toolbar Image</button>
                         <button>Confirm Preset</button>
                     </div>
+
+
+                    <!-- AUDIO PLAYGROUND MENU -->
+                    
+                    <div class="menu submenu" id="TB_AP">
+                        <header class="menu-header">AUDIO PLAYGROUND</header>
+                        <button class="submenu-button" id="AP_Back">Back</button>
+                        <button class="submenu-button" id="AP_Load">Load Menu</button>
+                        <button class="submenu-button" id="AP_Unload">Unload Menu</button>
+                        <button class="submenu-button" id="AP_Play">Play</button>
+                        <button class="submenu-button" id="AP_Stop">Stop</button>
+                    </div>
+
                 </div>
             </div>
 
             <!-- SCRIPTS -->
 
+            <script type="module" src="./scripts/classes.js"></script>
+            <script type="module" src="./scripts/globalVariables.js"></script>
+
+
             <!-- END OF BODY -->
-            <script type="module" src="scripts/theming/colorScheme.js"></script>
-            <script type="module" src="scripts/theming/customLayouts.js"></script>
-            <script type="module" src="scripts/managers/siteHandler.js"></script>
-            <script type="module" src="scripts/test.js"></script>
-             <script type="module" src="scripts/theme.js"></script>
-</body>
+    </body>
 
 </html>

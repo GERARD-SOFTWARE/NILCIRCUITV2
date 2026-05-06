@@ -1,3 +1,5 @@
+import { Elements } from "../globalVariables.js";
+
 export class Table {
     _table = [];
     constructor(width, height) {
@@ -149,13 +151,88 @@ export class AreaBuilder {
 export class SubMenu {
     _parent;
     _container;
-    constructor(parentElement) {
+    title;
+    id;
+    buttons = {};
+    constructor(parentElement, title, id) {
         this._parent = parentElement;
         this._container = document.createElement("div");
         this._container.classList = `menu submenu`;
+        this._container.id = id;
+        this.id = id;
+        this.title = document.createElement(`header`);
+        this.title.innerText = title;
+        this.title.classList = `menu-header`;
+        this._container.appendChild(this.title);
+
+        Elements.Toolbar.Container.appendChild(this._container)
+
+        let openButton = document.createElement("button");
+        this._parent.appendChild(openButton);
+        openButton.innerText = title;
+        openButton.addEventListener('click', () => {
+            this.openMenu(this._parent);
+        });
+
+        let backButton = document.createElement("button");
+        this._container.appendChild(backButton);
+        backButton.innerText = "Back";
+        backButton.addEventListener('click', () => {
+            this._parent.style.transform = "translateX(0%)";
+            this._container.style.transform = "translateX(250px)";
+        });
     }
 
-    addButton(title, onclick) {
-        
+    openMenu() {
+        this._parent.style.transform = "translateX(-250px)";
+        this._container.style.transform = "translateX(0%)";
+    }
+
+    addButton(title, id) {
+        const idNew = `${this.id}_${id.replace(" ", "-")}`;
+        let button = document.createElement("button");
+        button.innerText = title;
+        button.id = idNew;
+        this._container.appendChild(button);
+        this.buttons[idNew] = button;
+        return button;
+    }
+
+    bindButton(id, callback) {
+        let button = this.buttons[`${this.id}_${id.replace(" ", "-")}`]
+        if (button != undefined && button != null) {
+            return button.addEventListener('click', callback);
+        }
+        return Error("No button belonging to this submenu containing that id."); // Return an error, just in case someone calls without a real id
+    }
+
+    addAndBindButton(title, id, callback) {
+        let b = this.addButton(title, id);
+        let e = this.bindButton(id, callback);
+        return {
+            "button": b,
+            "eventListener": e
+        }
+    }
+
+    getButtonById(id) {
+        const idNew = `${this.id}_${id.replace(" ", "-")}`
+        this.buttons.forEach(button => {
+            if (button.id == idNew) return button;
+        });
+    }
+
+    getButtonByTitle(title) {
+        this.buttons.forEach(button => {
+            if (button.innerText == title) return button;
+        });
+    }
+
+    getParent() {
+        return this._parent;
+    }
+
+    getContainer() {
+        return this._container;
     }
 }

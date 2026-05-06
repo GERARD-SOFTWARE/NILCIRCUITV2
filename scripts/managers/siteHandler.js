@@ -1,4 +1,4 @@
-import { titles, Elements } from "./globalVariables.js";
+import { titles, Elements } from "../globalVariables.js";
 (() => {
     function currentDateFormatted() {
         const date = new Date();
