@@ -189,10 +189,6 @@ export class SubMenu {
         this._container.style.transform = "translateX(0%)";
     }
 
-=======
-    }
-
->>>>>>> dbe25f6bc287df6800b2e2975b357dd68a709a2a:scripts/classes.js
     addButton(title, id) {
         const idNew = `${this.id}_${id.replace(" ", "-")}`;
         let button = document.createElement("button");
@@ -201,7 +197,6 @@ export class SubMenu {
         this._container.appendChild(button);
         this.buttons[idNew] = button;
         return button;
-<<<<<<< HEAD:scripts/classes/UI.js
     }
 
     bindButton(id, callback) {
